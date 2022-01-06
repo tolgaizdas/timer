@@ -1,0 +1,66 @@
+/* TAG SELECTORS */
+
+body {
+    color: white;
+    font-size: 20px;
+    margin: 25vh auto;
+    text-align: center;
+}
+
+h5 {
+    margin-left: 10px;
+}
+
+table {
+    width: 230px;
+    height: 30px;
+}
+
+table.fixed {
+    table-layout: fixed;
+    width: 800px;
+}
+
+td {
+    padding: 10px;
+}
+
+ol>li::marker {
+    font-weight: bold;
+}
+
+li:before {
+    content: "Lap --> ";
+    font-weight: bold;
+}
+
+/* CLASS SELECTORS */
+
+.btn {
+    margin: 0 10px;
+}
+
+.main-timer {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.number {
+    text-align: center;
+}
+
+/* ID SELECTORS */
+
+#information {
+    display: inline-block;
+    text-align: left;
+    margin: 15px;
+}
+
+#timer {
+    margin: 10px;
+}
+
+#buttons {
+    margin: 15px;
+}
