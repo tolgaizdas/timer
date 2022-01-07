@@ -20,19 +20,19 @@ function timerStart() {
 }
 
 function timerlap() {
-    let past = timer - lapTime;
+    // let past = timer - lapTime;
 
-    let passedTimeLabel = document.getElementById("passed-time");
-    passedTimeLabel.textContent = past;
+    // let passedTimeLabel = document.getElementById("passed-time");
+    // passedTimeLabel.textContent = past;
 
-    lapTime = timer;
+    lapTime = timer - lapTime;
 
     var lapElement = document.createElement("li");
     lapElement.appendChild(document.createTextNode(lapTime));
     lapList.appendChild(lapElement);
 }
 
-function timerpause() {
+function timerPause() {
     clearInterval(timeInterval);
 }
 
@@ -44,8 +44,8 @@ function timerReset() {
     seconds = 0;
     lapTime = 0;
 
-    let passedTimeLabel = document.getElementById("passed-time");
-    passedTimeLabel.textContent = "There is no lap added yet.";
+    // let passedTimeLabel = document.getElementById("passed-time");
+    // passedTimeLabel.textContent = "There is no lap added yet.";
 
     let timerLabel = document.getElementById("timer");
     timerLabel.innerHTML = "<p class='main-timer'>" + minute + " : " + seconds + "</p>";
@@ -54,13 +54,25 @@ function timerReset() {
 }
 
 let startButton = document.getElementById("start-button");
-startButton.addEventListener("click", timerStart);
+startButton.addEventListener("click", function() {
+    startButton.disabled = true;
+    pauseButton.disabled = false;
+    timerStart();
+});
 
 let lapButton = document.getElementById("lap-button");
 lapButton.addEventListener("click", timerlap);
 
 let pauseButton = document.getElementById("pause-button");
-pauseButton.addEventListener("click", timerpause);
+pauseButton.addEventListener("click", function() {
+    startButton.disabled = false;
+    pauseButton.disabled = true;
+    timerPause();
+});
 
 let resetButton = document.getElementById("reset-button");
-resetButton.addEventListener("click", timerReset);
+resetButton.addEventListener("click", function() {
+    startButton.disabled = false;
+    pauseButton.disabled = false;
+    timerReset();
+});
