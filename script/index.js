@@ -2,6 +2,7 @@ let timer = 0;
 let minute = 0;
 let seconds = 0;
 let lapTime = 0;
+let prevLap = 0;
 let timeInterval = null;
 
 let lapList = document.getElementById("lap-list");
@@ -21,11 +22,11 @@ function timerStart() {
 
 function timerlap() {
     // let past = timer - lapTime;
-
     // let passedTimeLabel = document.getElementById("passed-time");
     // passedTimeLabel.textContent = past;
-
-    lapTime = timer - lapTime;
+    
+    lapTime = timer - prevLap;
+    prevLap = timer;
 
     var lapElement = document.createElement("li");
     lapElement.appendChild(document.createTextNode(lapTime));
