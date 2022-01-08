@@ -77,7 +77,7 @@ function timerReset() {
     // passedTimeLabel.textContent = "There is no lap added yet.";
 
     let timerLabel = document.getElementById("timer");
-    timerLabel.innerHTML = "<p class='main-timer'>" + minute + " : " + seconds + "</p>";
+    timerLabel.innerHTML = "<p class='main-timer'>" + "0" + minute + " : " + "0" + seconds + "</p>";
 
     lapList.innerHTML = "";
 }
