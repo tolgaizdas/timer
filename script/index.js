@@ -16,6 +16,19 @@ function timerStart() {
         if (timer % 60 === 0) {
             seconds = 0;
         }
+
+        if (timer < 10) {
+            timer = "0" + timer;
+        }
+
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+
         timerLabel.innerHTML = "<p class='main-timer'>" + minute + " : " + seconds + "</p>";
     }, 1000);
 }
@@ -26,6 +39,21 @@ function timerlap() {
     // passedTimeLabel.textContent = past;
     
     lapTime = timer - prevLap;
+    if (lapTime > 59) {
+        let lapMinute = Math.floor(lapTime / 60);
+        let lapSeconds = lapTime % 60;
+
+        if (lapMinute < 10) {
+            lapMinute = "0" + lapMinute;
+        }
+
+        if (lapSeconds < 10) {
+            lapSeconds = "0" + lapSeconds;
+        }
+
+        lapTime = lapTime + " (" + lapMinute + " : " + lapSeconds + ")";
+    }
+
     prevLap = timer;
 
     var lapElement = document.createElement("li");
