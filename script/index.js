@@ -72,6 +72,7 @@ function timerReset() {
     minute = 0;
     seconds = 0;
     lapTime = 0;
+    prevLap = 0;
 
     // let passedTimeLabel = document.getElementById("passed-time");
     // passedTimeLabel.textContent = "There is no lap added yet.";
